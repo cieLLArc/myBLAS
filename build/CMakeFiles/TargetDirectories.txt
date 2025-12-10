@@ -1,0 +1,4 @@
+/home/ciellarc/myBLAS/build/CMakeFiles/myblas.dir
+/home/ciellarc/myBLAS/build/CMakeFiles/myBLASmain.dir
+/home/ciellarc/myBLAS/build/CMakeFiles/edit_cache.dir
+/home/ciellarc/myBLAS/build/CMakeFiles/rebuild_cache.dir

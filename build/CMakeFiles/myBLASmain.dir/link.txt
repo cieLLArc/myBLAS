@@ -1,0 +1,1 @@
+/usr/bin/c++  -fopenmp -march=native -Wall -O3 CMakeFiles/myBLASmain.dir/main.cpp.o -o myBLASmain  libmyblas.a 
