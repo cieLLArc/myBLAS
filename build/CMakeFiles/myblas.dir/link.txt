@@ -1,2 +1,2 @@
-/usr/bin/ar qc libmyblas.a CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o CMakeFiles/myblas.dir/src/utils/dataGen.cpp.o CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.o
+/usr/bin/ar qc libmyblas.a CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o CMakeFiles/myblas.dir/src/utils/utils.cpp.o
 /usr/bin/ranlib libmyblas.a

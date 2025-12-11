@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/ciellarc/myBLAS/include
 
-CXX_FLAGS =  -fopenmp -march=native -Wall -O3 -std=gnu++11
+CXX_FLAGS = -O3 -DNDEBUG -O3 -march=native -Wall -Wextra -fopenmp
 

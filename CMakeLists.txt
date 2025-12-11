@@ -1,35 +1,99 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.12)
 project(MyBLAS VERSION 1.0.0 LANGUAGES CXX)
 
-# C++ 标准
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# 设置默认构建类型
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Release")
+endif()
 
-# 编译选项
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp -march=native -Wall -O3")
+set(SOURCES
+    ${PROJECT_SOURCE_DIR}/src/level3/sgemm.cpp
 
-# 包含头文件目录
-include_directories(${PROJECT_SOURCE_DIR}/include)
-
-# 收集源文件（根据你的实际结构调整）
-file(GLOB_RECURSE SOURCES 
-    "src/*.cpp"
-    "src/*.c"
+    ${PROJECT_SOURCE_DIR}/src/utils/utils.cpp
 )
 
-# 如果有源文件，创建库
 if(SOURCES)
     add_library(myblas ${SOURCES})
+    target_include_directories(myblas PUBLIC ${PROJECT_SOURCE_DIR}/include)
+
+    find_package(OpenMP REQUIRED)
+    if(OpenMP_FOUND)
+        target_link_libraries(myblas PRIVATE OpenMP::OpenMP_CXX)
+    endif()
+
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+        target_compile_options(myblas PRIVATE
+            -O0
+            -g
+            -march=native
+            -Wall
+            -Wextra
+        )
+    elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
+        target_compile_options(myblas PRIVATE
+            -O3
+            -march=native
+            -Wall
+            -Wextra
+        )
+    endif()
+    target_compile_features(myblas PRIVATE cxx_std_11)
 endif()
 
-# 如果有 main.cpp，创建可执行文件
 if(EXISTS "${PROJECT_SOURCE_DIR}/main.cpp")
     add_executable(myBLASmain main.cpp)
+
     if(TARGET myblas)
-        target_link_libraries(myBLASmain myblas)
+        target_link_libraries(myBLASmain PRIVATE myblas)
     endif()
+
+    target_include_directories(myBLASmain PRIVATE ${PROJECT_SOURCE_DIR}/include)
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+        target_compile_options(myBLASmain PRIVATE
+            -O0
+            -g
+            -Wall
+            -Wextra
+        )
+    elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
+        target_compile_options(myBLASmain PRIVATE
+            -O3
+            -Wall
+            -Wextra
+        )
+    endif()
+    target_compile_features(myblas PRIVATE cxx_std_11)
 endif()
 
-# 打印信息
-message(STATUS "Project source dir: ${PROJECT_SOURCE_DIR}")
-message(STATUS "Found sources: ${SOURCES}")
+option(BUILD_BENCHMARKS "Build benchmarks" ON)
+
+if(BUILD_BENCHMARKS)
+    add_subdirectory(benchmark)
+endif()
+
+# ========================
+# Project Info
+# ========================
+message(STATUS "")
+message(STATUS "=== [MAIN PROJECT] ===")
+message(STATUS "Project         : ${PROJECT_NAME}")
+message(STATUS "Build type      : ${CMAKE_BUILD_TYPE}")
+message(STATUS "Compiler        : ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
+message(STATUS "C++ Standard    : cxx_std_${CMAKE_CXX_STANDARD}")
+
+
+# ========================
+# Build Targets
+# ========================
+message(STATUS "Built targets")
+foreach(TARGET myBLASmain bench_sgemm)
+    message(STATUS "  • ${TARGET}")
+endforeach()
+
+# ========================
+# Warnings & Notices
+# ========================
+if(NOT CMAKE_BUILD_TYPE STREQUAL "Release")
+    message(WARNING "Non-Release build: performance may be suboptimal.")
+endif()
+message(STATUS "")

@@ -8,9 +8,9 @@
 #include <pthread.h>
 #include <sys/mman.h>
 
-#include "blas_level3.h"
+#include "myBLAS_level3.h"
 
-#include "dataGen.h"
+#include "utils.h"
 
 int main(int argc, char *argv[])
 {
@@ -72,10 +72,6 @@ int main(int argc, char *argv[])
             C[i * n + j] = rand_double();
         }
     }
-
-    // print_matrix(A, m, k);
-    // print_matrix(B, k, n);
-    // print_matrix(C, m, n);
 
     compute_fma_ymm_alignment_blocking_openMP(A, B, C, m, n, k);
 

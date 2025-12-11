@@ -14,6 +14,9 @@
 # EXTERNAL cache entries
 ########################
 
+//Build benchmarks
+BUILD_BENCHMARKS:BOOL=ON
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
@@ -204,6 +207,45 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Enables cluster BLAS library
+ENABLE_BLACS:BOOL=OFF
+
+//Enables BLAS Fortran95 API
+ENABLE_BLAS95:BOOL=OFF
+
+//Enables cluster DFT library
+ENABLE_CDFT:BOOL=OFF
+
+//Enables LAPACK Fortran95 API
+ENABLE_LAPACK95:BOOL=OFF
+
+//Enables OpenMP Offload functionality
+ENABLE_OMP_OFFLOAD:BOOL=OFF
+
+//Enables cluster LAPACK library
+ENABLE_SCALAPACK:BOOL=OFF
+
+//Enable SYCL compiler support
+ENABLE_SYCL_COMPILER:STRING=AUTO
+
+//Enables compiling a oneMKL SYCL test program
+ENABLE_TRY_SYCL_COMPILE:BOOL=OFF
+
+//Path to a file.
+MKL_INCLUDE:PATH=/opt/intel/oneapi/mkl/latest/include
+
+//Choose MKL_INTERFACE_FULL options are: intel_ilp64;intel_lp64
+MKL_INTERFACE_FULL:STRING=intel_ilp64
+
+//Choose MKL_LINK options are: static;dynamic;sdl
+MKL_LINK:STRING=dynamic
+
+//Choose MKL_MPI options are: intelmpi;openmpi;mpich;mpich2
+MKL_MPI:STRING=intelmpi
+
+//Choose MKL_THREADING options are: sequential;intel_thread;tbb_thread;gnu_thread
+MKL_THREADING:STRING=intel_thread
+
 //Value Computed by CMake
 MyBLAS_BINARY_DIR:STATIC=/home/ciellarc/myBLAS/build
 
@@ -212,6 +254,39 @@ MyBLAS_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 MyBLAS_SOURCE_DIR:STATIC=/home/ciellarc/myBLAS
+
+//Path to a library.
+OMP_LIBRARY:FILEPATH=/opt/intel/oneapi/compiler/latest/lib/libiomp5.so
+
+//CXX compiler flags for OpenMP parallelization
+OpenMP_CXX_FLAGS:STRING=-fopenmp
+
+//CXX compiler libraries for OpenMP parallelization
+OpenMP_CXX_LIB_NAMES:STRING=gomp;pthread
+
+//Path to the gomp library for OpenMP
+OpenMP_gomp_LIBRARY:FILEPATH=/usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
+
+//Path to the pthread library for OpenMP
+OpenMP_pthread_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpthread.a
+
+//Path to a library.
+mkl_blacs_intelmpi_ilp64_file:FILEPATH=/opt/intel/oneapi/mkl/latest/lib/libmkl_blacs_intelmpi_ilp64.so
+
+//Path to a library.
+mkl_cdft_core_file:FILEPATH=/opt/intel/oneapi/mkl/latest/lib/libmkl_cdft_core.so
+
+//Path to a library.
+mkl_core_file:FILEPATH=/opt/intel/oneapi/mkl/latest/lib/libmkl_core.so
+
+//Path to a library.
+mkl_intel_ilp64_file:FILEPATH=/opt/intel/oneapi/mkl/latest/lib/libmkl_intel_ilp64.so
+
+//Path to a library.
+mkl_intel_thread_file:FILEPATH=/opt/intel/oneapi/mkl/latest/lib/libmkl_intel_thread.so
+
+//Path to a library.
+mkl_scalapack_ilp64_file:FILEPATH=/opt/intel/oneapi/mkl/latest/lib/libmkl_scalapack_ilp64.so
 
 
 ########################
@@ -302,7 +377,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -347,6 +422,26 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//STRINGS property for variable: ENABLE_SYCL_COMPILER
+ENABLE_SYCL_COMPILER-STRINGS:INTERNAL=AUTO;ON;OFF
+//Details about finding OpenMP
+FIND_PACKAGE_MESSAGE_DETAILS_OpenMP:INTERNAL=[TRUE][c ][v4.5()]
+//Details about finding OpenMP_CXX
+FIND_PACKAGE_MESSAGE_DETAILS_OpenMP_CXX:INTERNAL=[-fopenmp][/usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so][/usr/lib/x86_64-linux-gnu/libpthread.a][v4.5()]
+//Result of TRY_COMPILE
+OpenMP_COMPILE_RESULT_CXX_fopenmp:INTERNAL=TRUE
+//ADVANCED property for variable: OpenMP_CXX_FLAGS
+OpenMP_CXX_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenMP_CXX_LIB_NAMES
+OpenMP_CXX_LIB_NAMES-ADVANCED:INTERNAL=1
+//CXX compiler's OpenMP specification date
+OpenMP_CXX_SPEC_DATE:INTERNAL=201511
+//Result of TRY_COMPILE
+OpenMP_SPECTEST_CXX_:INTERNAL=TRUE
+//ADVANCED property for variable: OpenMP_gomp_LIBRARY
+OpenMP_gomp_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenMP_pthread_LIBRARY
+OpenMP_pthread_LIBRARY-ADVANCED:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 

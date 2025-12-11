@@ -1,10 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o"
   "CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o.d"
-  "CMakeFiles/myblas.dir/src/utils/dataGen.cpp.o"
-  "CMakeFiles/myblas.dir/src/utils/dataGen.cpp.o.d"
-  "CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.o"
-  "CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.o.d"
+  "CMakeFiles/myblas.dir/src/utils/utils.cpp.o"
+  "CMakeFiles/myblas.dir/src/utils/utils.cpp.o.d"
   "libmyblas.a"
   "libmyblas.pdb"
 )

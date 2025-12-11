@@ -142,6 +142,45 @@ myBLASmain/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/myBLASmain.dir/build.make CMakeFiles/myBLASmain.dir/build
 .PHONY : myBLASmain/fast
 
+#=============================================================================
+# Target rules for targets named bench_myBLAS_dgemm
+
+# Build rule for target.
+bench_myBLAS_dgemm: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_myBLAS_dgemm
+.PHONY : bench_myBLAS_dgemm
+
+# fast build rule for target.
+bench_myBLAS_dgemm/fast:
+	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build
+.PHONY : bench_myBLAS_dgemm/fast
+
+#=============================================================================
+# Target rules for targets named bench_myBLAS_dgemm1
+
+# Build rule for target.
+bench_myBLAS_dgemm1: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_myBLAS_dgemm1
+.PHONY : bench_myBLAS_dgemm1
+
+# fast build rule for target.
+bench_myBLAS_dgemm1/fast:
+	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/build
+.PHONY : bench_myBLAS_dgemm1/fast
+
+#=============================================================================
+# Target rules for targets named bench_mklBLAS_dgemm
+
+# Build rule for target.
+bench_mklBLAS_dgemm: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_mklBLAS_dgemm
+.PHONY : bench_mklBLAS_dgemm
+
+# fast build rule for target.
+bench_mklBLAS_dgemm/fast:
+	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/build
+.PHONY : bench_mklBLAS_dgemm/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -190,53 +229,29 @@ src/level3/sgemm.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/myblas.dir/build.make CMakeFiles/myblas.dir/src/level3/sgemm.cpp.s
 .PHONY : src/level3/sgemm.cpp.s
 
-src/utils/dataGen.o: src/utils/dataGen.cpp.o
-.PHONY : src/utils/dataGen.o
+src/utils/utils.o: src/utils/utils.cpp.o
+.PHONY : src/utils/utils.o
 
 # target to build an object file
-src/utils/dataGen.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myblas.dir/build.make CMakeFiles/myblas.dir/src/utils/dataGen.cpp.o
-.PHONY : src/utils/dataGen.cpp.o
+src/utils/utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myblas.dir/build.make CMakeFiles/myblas.dir/src/utils/utils.cpp.o
+.PHONY : src/utils/utils.cpp.o
 
-src/utils/dataGen.i: src/utils/dataGen.cpp.i
-.PHONY : src/utils/dataGen.i
-
-# target to preprocess a source file
-src/utils/dataGen.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myblas.dir/build.make CMakeFiles/myblas.dir/src/utils/dataGen.cpp.i
-.PHONY : src/utils/dataGen.cpp.i
-
-src/utils/dataGen.s: src/utils/dataGen.cpp.s
-.PHONY : src/utils/dataGen.s
-
-# target to generate assembly for a file
-src/utils/dataGen.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myblas.dir/build.make CMakeFiles/myblas.dir/src/utils/dataGen.cpp.s
-.PHONY : src/utils/dataGen.cpp.s
-
-src/utils/memAlloc.o: src/utils/memAlloc.cpp.o
-.PHONY : src/utils/memAlloc.o
-
-# target to build an object file
-src/utils/memAlloc.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myblas.dir/build.make CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.o
-.PHONY : src/utils/memAlloc.cpp.o
-
-src/utils/memAlloc.i: src/utils/memAlloc.cpp.i
-.PHONY : src/utils/memAlloc.i
+src/utils/utils.i: src/utils/utils.cpp.i
+.PHONY : src/utils/utils.i
 
 # target to preprocess a source file
-src/utils/memAlloc.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myblas.dir/build.make CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.i
-.PHONY : src/utils/memAlloc.cpp.i
+src/utils/utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myblas.dir/build.make CMakeFiles/myblas.dir/src/utils/utils.cpp.i
+.PHONY : src/utils/utils.cpp.i
 
-src/utils/memAlloc.s: src/utils/memAlloc.cpp.s
-.PHONY : src/utils/memAlloc.s
+src/utils/utils.s: src/utils/utils.cpp.s
+.PHONY : src/utils/utils.s
 
 # target to generate assembly for a file
-src/utils/memAlloc.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myblas.dir/build.make CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.s
-.PHONY : src/utils/memAlloc.cpp.s
+src/utils/utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myblas.dir/build.make CMakeFiles/myblas.dir/src/utils/utils.cpp.s
+.PHONY : src/utils/utils.cpp.s
 
 # Help Target
 help:
@@ -246,6 +261,9 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... bench_mklBLAS_dgemm"
+	@echo "... bench_myBLAS_dgemm"
+	@echo "... bench_myBLAS_dgemm1"
 	@echo "... myBLASmain"
 	@echo "... myblas"
 	@echo "... main.o"
@@ -254,12 +272,9 @@ help:
 	@echo "... src/level3/sgemm.o"
 	@echo "... src/level3/sgemm.i"
 	@echo "... src/level3/sgemm.s"
-	@echo "... src/utils/dataGen.o"
-	@echo "... src/utils/dataGen.i"
-	@echo "... src/utils/dataGen.s"
-	@echo "... src/utils/memAlloc.o"
-	@echo "... src/utils/memAlloc.i"
-	@echo "... src/utils/memAlloc.s"
+	@echo "... src/utils/utils.o"
+	@echo "... src/utils/utils.i"
+	@echo "... src/utils/utils.s"
 .PHONY : help
 
 

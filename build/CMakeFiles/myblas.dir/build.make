@@ -83,49 +83,33 @@ CMakeFiles/myblas.dir/src/level3/sgemm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/myblas.dir/src/level3/sgemm.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ciellarc/myBLAS/src/level3/sgemm.cpp -o CMakeFiles/myblas.dir/src/level3/sgemm.cpp.s
 
-CMakeFiles/myblas.dir/src/utils/dataGen.cpp.o: CMakeFiles/myblas.dir/flags.make
-CMakeFiles/myblas.dir/src/utils/dataGen.cpp.o: /home/ciellarc/myBLAS/src/utils/dataGen.cpp
-CMakeFiles/myblas.dir/src/utils/dataGen.cpp.o: CMakeFiles/myblas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/myblas.dir/src/utils/dataGen.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myblas.dir/src/utils/dataGen.cpp.o -MF CMakeFiles/myblas.dir/src/utils/dataGen.cpp.o.d -o CMakeFiles/myblas.dir/src/utils/dataGen.cpp.o -c /home/ciellarc/myBLAS/src/utils/dataGen.cpp
+CMakeFiles/myblas.dir/src/utils/utils.cpp.o: CMakeFiles/myblas.dir/flags.make
+CMakeFiles/myblas.dir/src/utils/utils.cpp.o: /home/ciellarc/myBLAS/src/utils/utils.cpp
+CMakeFiles/myblas.dir/src/utils/utils.cpp.o: CMakeFiles/myblas.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/myblas.dir/src/utils/utils.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myblas.dir/src/utils/utils.cpp.o -MF CMakeFiles/myblas.dir/src/utils/utils.cpp.o.d -o CMakeFiles/myblas.dir/src/utils/utils.cpp.o -c /home/ciellarc/myBLAS/src/utils/utils.cpp
 
-CMakeFiles/myblas.dir/src/utils/dataGen.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/myblas.dir/src/utils/dataGen.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ciellarc/myBLAS/src/utils/dataGen.cpp > CMakeFiles/myblas.dir/src/utils/dataGen.cpp.i
+CMakeFiles/myblas.dir/src/utils/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/myblas.dir/src/utils/utils.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ciellarc/myBLAS/src/utils/utils.cpp > CMakeFiles/myblas.dir/src/utils/utils.cpp.i
 
-CMakeFiles/myblas.dir/src/utils/dataGen.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/myblas.dir/src/utils/dataGen.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ciellarc/myBLAS/src/utils/dataGen.cpp -o CMakeFiles/myblas.dir/src/utils/dataGen.cpp.s
-
-CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.o: CMakeFiles/myblas.dir/flags.make
-CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.o: /home/ciellarc/myBLAS/src/utils/memAlloc.cpp
-CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.o: CMakeFiles/myblas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.o -MF CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.o.d -o CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.o -c /home/ciellarc/myBLAS/src/utils/memAlloc.cpp
-
-CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ciellarc/myBLAS/src/utils/memAlloc.cpp > CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.i
-
-CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ciellarc/myBLAS/src/utils/memAlloc.cpp -o CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.s
+CMakeFiles/myblas.dir/src/utils/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/myblas.dir/src/utils/utils.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ciellarc/myBLAS/src/utils/utils.cpp -o CMakeFiles/myblas.dir/src/utils/utils.cpp.s
 
 # Object files for target myblas
 myblas_OBJECTS = \
 "CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o" \
-"CMakeFiles/myblas.dir/src/utils/dataGen.cpp.o" \
-"CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.o"
+"CMakeFiles/myblas.dir/src/utils/utils.cpp.o"
 
 # External object files for target myblas
 myblas_EXTERNAL_OBJECTS =
 
 libmyblas.a: CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o
-libmyblas.a: CMakeFiles/myblas.dir/src/utils/dataGen.cpp.o
-libmyblas.a: CMakeFiles/myblas.dir/src/utils/memAlloc.cpp.o
+libmyblas.a: CMakeFiles/myblas.dir/src/utils/utils.cpp.o
 libmyblas.a: CMakeFiles/myblas.dir/build.make
 libmyblas.a: CMakeFiles/myblas.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libmyblas.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libmyblas.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/myblas.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/myblas.dir/link.txt --verbose=$(VERBOSE)
 

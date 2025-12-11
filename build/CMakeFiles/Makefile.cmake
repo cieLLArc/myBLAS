@@ -8,8 +8,11 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "/home/ciellarc/myBLAS/CMakeLists.txt"
+  "/home/ciellarc/myBLAS/benchmark/CMakeLists.txt"
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
+  "/opt/intel/oneapi/mkl/latest/lib/cmake/mkl/MKLConfig.cmake"
+  "/opt/intel/oneapi/mkl/latest/lib/cmake/mkl/MKLConfigVersion.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in"
   "/usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp"
   "/usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake"
@@ -77,6 +80,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake"
   "/usr/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake"
   "/usr/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake"
+  "/usr/share/cmake-3.28/Modules/FindOpenMP.cmake"
+  "/usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake"
+  "/usr/share/cmake-3.28/Modules/FindPackageMessage.cmake"
   "/usr/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake"
   "/usr/share/cmake-3.28/Modules/Platform/Linux-Determine-CXX.cmake"
   "/usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake"
@@ -98,10 +104,14 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "benchmark/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/myblas.dir/DependInfo.cmake"
   "CMakeFiles/myBLASmain.dir/DependInfo.cmake"
+  "benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/DependInfo.cmake"
+  "benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/DependInfo.cmake"
+  "benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/DependInfo.cmake"
   )

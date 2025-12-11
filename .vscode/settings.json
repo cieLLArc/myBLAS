@@ -12,6 +12,7 @@
         "limits": "cpp",
         "new": "cpp",
         "cstdint": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "iostream": "cpp"
     }
 }

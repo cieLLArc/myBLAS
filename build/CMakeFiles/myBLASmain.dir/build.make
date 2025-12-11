@@ -93,6 +93,8 @@ myBLASmain_EXTERNAL_OBJECTS =
 myBLASmain: CMakeFiles/myBLASmain.dir/main.cpp.o
 myBLASmain: CMakeFiles/myBLASmain.dir/build.make
 myBLASmain: libmyblas.a
+myBLASmain: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
+myBLASmain: /usr/lib/x86_64-linux-gnu/libpthread.a
 myBLASmain: CMakeFiles/myBLASmain.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable myBLASmain"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/myBLASmain.dir/link.txt --verbose=$(VERBOSE)
