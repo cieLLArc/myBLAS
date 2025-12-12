@@ -16,8 +16,6 @@
 
 extern double g_tsc_freq;
 
-void calibrate_tsc();
-
 void *page_alloc_aligned(size_t size);
 
 void generate_random_matrix(double *mat, int size);

@@ -1,8 +1,12 @@
 #include <cstdio>
 #include <cmath>
 #include <immintrin.h>
+#include <omp.h>
 
 #include "myBLAS_level3.h"
+
+#define SMALL_MATRIX_THRESHOLD 256 // 256x256以下的矩阵算小矩阵
+#define MEDIUM_MATRIX_THRESHOLD 512
 
 void naive_col_major_sgemm(char transa, char transb, int M, int N, int K, float alpha, const float *A, int lda, const float *B, int ldb, float beta, float *C, int ldc)
 {
@@ -169,6 +173,152 @@ void compute_fma_ymm_alignment_blocking_openMP_optimized_fast(double *A, double 
                             _mm256_store_pd(&C[(i + 2) * n + j], c_2);
                             _mm256_store_pd(&C[(i + 3) * n + j], c_3);
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+void compute_fma_ymm_alignment_blocking_openMP_optimized(double *A, double *B, double *C, int m, int n, int k)
+{
+    // 根据矩阵大小选择不同的实现
+    if (m <= SMALL_MATRIX_THRESHOLD && n <= SMALL_MATRIX_THRESHOLD &&
+        k <= SMALL_MATRIX_THRESHOLD)
+    {
+// 小矩阵：使用简单直接的向量化版本
+#pragma omp parallel for
+        for (int i = 0; i < m; i += 4)
+        {
+            for (int j = 0; j < n; j += 4)
+            {
+                __m256d c0 = _mm256_setzero_pd();
+                __m256d c1 = _mm256_setzero_pd();
+                __m256d c2 = _mm256_setzero_pd();
+                __m256d c3 = _mm256_setzero_pd();
+
+                for (int p = 0; p < k; p++)
+                {
+                    __m256d a0 = _mm256_set1_pd(A[i * k + p]);
+                    __m256d a1 = _mm256_set1_pd(A[(i + 1) * k + p]);
+                    __m256d a2 = _mm256_set1_pd(A[(i + 2) * k + p]);
+                    __m256d a3 = _mm256_set1_pd(A[(i + 3) * k + p]);
+
+                    __m256d b = _mm256_load_pd(&B[p * n + j]);
+
+                    c0 = _mm256_fmadd_pd(a0, b, c0);
+                    c1 = _mm256_fmadd_pd(a1, b, c1);
+                    c2 = _mm256_fmadd_pd(a2, b, c2);
+                    c3 = _mm256_fmadd_pd(a3, b, c3);
+                }
+
+                _mm256_store_pd(&C[i * n + j], c0);
+                _mm256_store_pd(&C[(i + 1) * n + j], c1);
+                _mm256_store_pd(&C[(i + 2) * n + j], c2);
+                _mm256_store_pd(&C[(i + 3) * n + j], c3);
+            }
+        }
+    }
+    else if (m <= MEDIUM_MATRIX_THRESHOLD && n <= MEDIUM_MATRIX_THRESHOLD)
+    {
+        // 中等矩阵：使用简单的分块，块大小较小
+        const int BLOCK_SIZE = 32;
+#pragma omp parallel for collapse(2)
+        for (int ii = 0; ii < m; ii += BLOCK_SIZE)
+        {
+            for (int jj = 0; jj < n; jj += BLOCK_SIZE)
+            {
+                for (int i = ii; i < ii + BLOCK_SIZE && i < m; i += 4)
+                {
+                    for (int j = jj; j < jj + BLOCK_SIZE && j < n; j += 4)
+                    {
+                        __m256d c0 = _mm256_load_pd(&C[i * n + j]);
+                        __m256d c1 = _mm256_load_pd(&C[(i + 1) * n + j]);
+                        __m256d c2 = _mm256_load_pd(&C[(i + 2) * n + j]);
+                        __m256d c3 = _mm256_load_pd(&C[(i + 3) * n + j]);
+
+                        for (int p = 0; p < k; p++)
+                        {
+                            __m256d a0 = _mm256_set1_pd(A[i * k + p]);
+                            __m256d a1 = _mm256_set1_pd(A[(i + 1) * k + p]);
+                            __m256d a2 = _mm256_set1_pd(A[(i + 2) * k + p]);
+                            __m256d a3 = _mm256_set1_pd(A[(i + 3) * k + p]);
+
+                            __m256d b = _mm256_load_pd(&B[p * n + j]);
+
+                            c0 = _mm256_fmadd_pd(a0, b, c0);
+                            c1 = _mm256_fmadd_pd(a1, b, c1);
+                            c2 = _mm256_fmadd_pd(a2, b, c2);
+                            c3 = _mm256_fmadd_pd(a3, b, c3);
+                        }
+
+                        _mm256_store_pd(&C[i * n + j], c0);
+                        _mm256_store_pd(&C[(i + 1) * n + j], c1);
+                        _mm256_store_pd(&C[(i + 2) * n + j], c2);
+                        _mm256_store_pd(&C[(i + 3) * n + j], c3);
+                    }
+                }
+            }
+        }
+    }
+    else
+    {
+        // 大矩阵：使用完整的分块优化
+        const int BLOCK_SIZE = 64;
+#pragma omp parallel for collapse(2)
+        for (int ii = 0; ii < m; ii += BLOCK_SIZE)
+        {
+            for (int jj = 0; jj < n; jj += BLOCK_SIZE)
+            {
+                // 局部C块
+                double c_block[BLOCK_SIZE][BLOCK_SIZE];
+                for (int i = 0; i < BLOCK_SIZE; i++)
+                    for (int j = 0; j < BLOCK_SIZE; j++)
+                        c_block[i][j] = 0.0;
+
+                for (int pp = 0; pp < k; pp += BLOCK_SIZE)
+                {
+                    int p_end = pp + BLOCK_SIZE < k ? pp + BLOCK_SIZE : k;
+
+                    for (int i = ii; i < ii + BLOCK_SIZE && i < m; i += 4)
+                    {
+                        for (int j = jj; j < jj + BLOCK_SIZE && j < n; j += 4)
+                        {
+                            for (int p = pp; p < p_end; p++)
+                            {
+                                __m256d a0 = _mm256_set1_pd(A[i * k + p]);
+                                __m256d a1 = _mm256_set1_pd(A[(i + 1) * k + p]);
+                                __m256d a2 = _mm256_set1_pd(A[(i + 2) * k + p]);
+                                __m256d a3 = _mm256_set1_pd(A[(i + 3) * k + p]);
+
+                                __m256d b = _mm256_load_pd(&B[p * n + j]);
+
+                                // 从c_block加载
+                                __m256d c0 = _mm256_loadu_pd(&c_block[i - ii][j - jj]);
+                                __m256d c1 = _mm256_loadu_pd(&c_block[i - ii + 1][j - jj]);
+                                __m256d c2 = _mm256_loadu_pd(&c_block[i - ii + 2][j - jj]);
+                                __m256d c3 = _mm256_loadu_pd(&c_block[i - ii + 3][j - jj]);
+
+                                c0 = _mm256_fmadd_pd(a0, b, c0);
+                                c1 = _mm256_fmadd_pd(a1, b, c1);
+                                c2 = _mm256_fmadd_pd(a2, b, c2);
+                                c3 = _mm256_fmadd_pd(a3, b, c3);
+
+                                _mm256_storeu_pd(&c_block[i - ii][j - jj], c0);
+                                _mm256_storeu_pd(&c_block[i - ii + 1][j - jj], c1);
+                                _mm256_storeu_pd(&c_block[i - ii + 2][j - jj], c2);
+                                _mm256_storeu_pd(&c_block[i - ii + 3][j - jj], c3);
+                            }
+                        }
+                    }
+                }
+
+                // 写回全局C
+                for (int i = ii; i < ii + BLOCK_SIZE && i < m; i++)
+                {
+                    for (int j = jj; j < jj + BLOCK_SIZE && j < n; j++)
+                    {
+                        C[i * n + j] = c_block[i - ii][j - jj];
                     }
                 }
             }

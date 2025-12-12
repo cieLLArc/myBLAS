@@ -26,6 +26,8 @@ if(SOURCES)
             -O0
             -g
             -march=native
+            -funroll-loops 
+            -ffast-math
             -Wall
             -Wextra
         )
@@ -33,6 +35,8 @@ if(SOURCES)
         target_compile_options(myblas PRIVATE
             -O3
             -march=native
+            -funroll-loops 
+            -ffast-math
             -Wall
             -Wextra
         )

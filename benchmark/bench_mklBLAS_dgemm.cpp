@@ -25,7 +25,7 @@ void warmup_run(double *A, double *B, double *C, int N)
     }
 }
 
-std::vector<uint64_t> benchmark_run(double *A, double *B, double *C, int N, int trials = 1000)
+std::vector<uint64_t> benchmark_run(double *A, double *B, double *C, int N, int trials = 50)
 {
     std::vector<uint64_t> times_ns;
     times_ns.reserve(trials);
@@ -45,7 +45,6 @@ std::vector<uint64_t> benchmark_run(double *A, double *B, double *C, int N, int 
 
 int main()
 {
-    calibrate_tsc();
 
     std::vector<int> sizes = {128, 512, 1024, 2048, 4096};
 

@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ciellarc/myBLAS/src/level3/sgemm.cpp" "CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o" "gcc" "CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o.d"
-  "/home/ciellarc/myBLAS/src/utils/utils.cpp" "CMakeFiles/myblas.dir/src/utils/utils.cpp.o" "gcc" "CMakeFiles/myblas.dir/src/utils/utils.cpp.o.d"
+  "/home/ciellarc/Projects/pull_demo/myBLAS/src/level3/sgemm.cpp" "CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o" "gcc" "CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o.d"
+  "/home/ciellarc/Projects/pull_demo/myBLAS/src/utils/utils.cpp" "CMakeFiles/myblas.dir/src/utils/utils.cpp.o" "gcc" "CMakeFiles/myblas.dir/src/utils/utils.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -1,1 +1,1 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/bench_myBLAS_dgemm1.dir/bench_myBLAS_dgemm1.cpp.o -o bench_myBLAS_dgemm1  ../libmyblas.a /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a 
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/bench_myBLAS_dgemm1.dir/link.d CMakeFiles/bench_myBLAS_dgemm1.dir/bench_myBLAS_dgemm1.cpp.o -o bench_myBLAS_dgemm1  ../libmyblas.a /usr/lib/gcc/x86_64-linux-gnu/15/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a

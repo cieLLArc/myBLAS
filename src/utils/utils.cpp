@@ -1,43 +1,7 @@
 #include "utils.h"
 
-double g_tsc_freq = 0.0;
+double g_tsc_freq = 2419200000.0;
 
-void calibrate_tsc()
-{
-    if (g_tsc_freq != 0.0)
-        return;
-
-    const int iterations = 5;
-    double frequencies[iterations];
-
-    for (int i = 0; i < iterations; ++i)
-    {
-        struct timespec start, end;
-        uint64_t tsc_start, tsc_end;
-
-        clock_gettime(CLOCK_MONOTONIC_RAW, &start);
-        tsc_start = get_cycles();
-
-        struct timespec sleep_time = {1, 0};
-        nanosleep(&sleep_time, NULL);
-
-        tsc_end = get_cycles();
-        clock_gettime(CLOCK_MONOTONIC_RAW, &end);
-
-        double wall_time = (end.tv_sec - start.tv_sec) +
-                           (end.tv_nsec - start.tv_nsec) / 1e9;
-
-        frequencies[i] = (tsc_end - tsc_start) / wall_time;
-    }
-
-    // 排序取中位数
-    for (int i = 0; i < iterations - 1; ++i)
-        for (int j = i + 1; j < iterations; ++j)
-            if (frequencies[i] > frequencies[j])
-                std::swap(frequencies[i], frequencies[j]);
-
-    g_tsc_freq = frequencies[iterations / 2];
-}
 
 void generate_random_matrix(double *mat, int size)
 {
