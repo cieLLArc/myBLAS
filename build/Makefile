@@ -143,17 +143,17 @@ myBLASmain/fast:
 .PHONY : myBLASmain/fast
 
 #=============================================================================
-# Target rules for targets named bench_myBLAS_dgemm1
+# Target rules for targets named bench_myBLAS_dgemm
 
 # Build rule for target.
-bench_myBLAS_dgemm1: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_myBLAS_dgemm1
-.PHONY : bench_myBLAS_dgemm1
+bench_myBLAS_dgemm: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_myBLAS_dgemm
+.PHONY : bench_myBLAS_dgemm
 
 # fast build rule for target.
-bench_myBLAS_dgemm1/fast:
-	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/build
-.PHONY : bench_myBLAS_dgemm1/fast
+bench_myBLAS_dgemm/fast:
+	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build
+.PHONY : bench_myBLAS_dgemm/fast
 
 #=============================================================================
 # Target rules for targets named bench_mklBLAS_dgemm
@@ -167,6 +167,19 @@ bench_mklBLAS_dgemm: cmake_check_build_system
 bench_mklBLAS_dgemm/fast:
 	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/build
 .PHONY : bench_mklBLAS_dgemm/fast
+
+#=============================================================================
+# Target rules for targets named test_myBLAS_dgemm
+
+# Build rule for target.
+test_myBLAS_dgemm: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_myBLAS_dgemm
+.PHONY : test_myBLAS_dgemm
+
+# fast build rule for target.
+test_myBLAS_dgemm/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_myBLAS_dgemm.dir/build.make tests/CMakeFiles/test_myBLAS_dgemm.dir/build
+.PHONY : test_myBLAS_dgemm/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -249,9 +262,10 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bench_mklBLAS_dgemm"
-	@echo "... bench_myBLAS_dgemm1"
+	@echo "... bench_myBLAS_dgemm"
 	@echo "... myBLASmain"
 	@echo "... myblas"
+	@echo "... test_myBLAS_dgemm"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

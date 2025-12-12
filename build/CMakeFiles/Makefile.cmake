@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/ciellarc/myBLAS/benchmark/CMakeLists.txt"
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
+  "/home/ciellarc/myBLAS/tests/CMakeLists.txt"
   "/opt/intel/oneapi/mkl/latest/lib/cmake/mkl/MKLConfig.cmake"
   "/opt/intel/oneapi/mkl/latest/lib/cmake/mkl/MKLConfigVersion.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in"
@@ -105,12 +106,14 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "benchmark/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/myblas.dir/DependInfo.cmake"
   "CMakeFiles/myBLASmain.dir/DependInfo.cmake"
-  "benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/DependInfo.cmake"
+  "benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/DependInfo.cmake"
   "benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/DependInfo.cmake"
+  "tests/CMakeFiles/test_myBLAS_dgemm.dir/DependInfo.cmake"
   )

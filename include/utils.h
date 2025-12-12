@@ -13,8 +13,9 @@
 #include <random>
 #include <algorithm>
 #include <omp.h>
+#include <cpuid.h>
 
-extern double g_tsc_freq;
+extern double tsc_freq;
 
 void calibrate_tsc();
 
@@ -22,7 +23,6 @@ void *page_alloc_aligned(size_t size);
 
 void generate_random_matrix(double *mat, int size);
 
-//
 double calculate_avg_gflops(const std::vector<uint64_t> &times_ns, int N);
 
 void write_to_csv(const std::string &filename,
@@ -42,12 +42,12 @@ inline uint64_t get_cycles()
 
 inline double get_timestamp_seconds()
 {
-    return get_cycles() / g_tsc_freq;
+    return get_cycles() / tsc_freq;
 }
 
 inline uint64_t get_timestamp_ns()
 {
-    return static_cast<uint64_t>(get_cycles() * 1e9 / g_tsc_freq);
+    return static_cast<uint64_t>(get_cycles() * 1e9 / tsc_freq);
 }
 
 inline double rand_double()

@@ -5,13 +5,12 @@ set(MKL_DIR ${MKL_ROOT}/lib/cmake/mkl)
 find_package(MKL CONFIG REQUIRED)
 
 # 通用配置
-set(BENCH_TARGETS bench_myBLAS_dgemm1 bench_mklBLAS_dgemm)
+set(BENCH_TARGETS bench_myBLAS_dgemm bench_mklBLAS_dgemm)
 set(COMPILE_OPTS -O3 -Wall -Wextra)
 
 foreach(target ${BENCH_TARGETS})
     add_executable(${target} ${target}.cpp)
     target_link_libraries(${target} PRIVATE myblas)
-    target_include_directories(${target} PRIVATE ${PROJECT_SOURCE_DIR}/include)
     target_compile_options(${target} PRIVATE ${COMPILE_OPTS})
     target_compile_features(${target} PRIVATE cxx_std_11)
 endforeach()

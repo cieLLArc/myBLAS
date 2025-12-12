@@ -1,18 +1,12 @@
-#include "utils.h"
 #include <fstream>
 #include <iomanip>
 #include <vector>
 #include <random>
 #include <algorithm>
 #include <omp.h>
-#include <mkl_cblas.h> // 引入 MKL CBLAS 接口
+#include <mkl_cblas.h>
 
-// 声明 MKL 函数（实际不需要 extern，因为已包含头文件）
-// void cblas_dgemm(CBLAS_LAYOUT layout, CBLAS_TRANSPOSE TransA, CBLAS_TRANSPOSE TransB,
-//                  const int M, const int N, const int K,
-//                  const double alpha, const double *A, const int lda,
-//                  const double *B, const int ldb,
-//                  const double beta, double *C, const int ldc);
+#include "utils.h"
 
 void warmup_run(double *A, double *B, double *C, int N)
 {
@@ -75,7 +69,7 @@ int main()
         std::vector<uint64_t> times_ns = benchmark_run(A, B, C, N);
         double avg_gflops = calculate_avg_gflops(times_ns, N);
 
-        std::cout << "GFLOPS (MKL): " << std::fixed << std::setprecision(2) << avg_gflops << std::endl;
+        std::cout << "MKL cblas_dgemm : " << std::fixed << std::setprecision(2) << avg_gflops << " GFLOPS" << std::endl;
 
         // 写入 CSV：每行一个 N
         write_to_csv("matrix_gflops.csv", "MKL", N, avg_gflops);

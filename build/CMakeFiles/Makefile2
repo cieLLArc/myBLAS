@@ -66,23 +66,26 @@ CMAKE_BINARY_DIR = /home/ciellarc/myBLAS/build
 all: CMakeFiles/myblas.dir/all
 all: CMakeFiles/myBLASmain.dir/all
 all: benchmark/all
+all: tests/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: benchmark/preinstall
+preinstall: tests/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/myblas.dir/clean
 clean: CMakeFiles/myBLASmain.dir/clean
 clean: benchmark/clean
+clean: tests/clean
 .PHONY : clean
 
 #=============================================================================
 # Directory level rules for directory benchmark
 
 # Recursive "all" directory target.
-benchmark/all: benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/all
+benchmark/all: benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/all
 benchmark/all: benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/all
 .PHONY : benchmark/all
 
@@ -91,9 +94,24 @@ benchmark/preinstall:
 .PHONY : benchmark/preinstall
 
 # Recursive "clean" directory target.
-benchmark/clean: benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/clean
+benchmark/clean: benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/clean
 benchmark/clean: benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/clean
 .PHONY : benchmark/clean
+
+#=============================================================================
+# Directory level rules for directory tests
+
+# Recursive "all" directory target.
+tests/all: tests/CMakeFiles/test_myBLAS_dgemm.dir/all
+.PHONY : tests/all
+
+# Recursive "preinstall" directory target.
+tests/preinstall:
+.PHONY : tests/preinstall
+
+# Recursive "clean" directory target.
+tests/clean: tests/CMakeFiles/test_myBLAS_dgemm.dir/clean
+.PHONY : tests/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/myblas.dir
@@ -148,30 +166,30 @@ CMakeFiles/myBLASmain.dir/clean:
 .PHONY : CMakeFiles/myBLASmain.dir/clean
 
 #=============================================================================
-# Target rules for target benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir
+# Target rules for target benchmark/CMakeFiles/bench_myBLAS_dgemm.dir
 
 # All Build rule for target.
-benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/all: CMakeFiles/myblas.dir/all
-	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/depend
-	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=3,4 "Built target bench_myBLAS_dgemm1"
-.PHONY : benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/all
+benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/all: CMakeFiles/myblas.dir/all
+	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/depend
+	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=3,4 "Built target bench_myBLAS_dgemm"
+.PHONY : benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/all
 
 # Build rule for subdir invocation for target.
-benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/rule: cmake_check_build_system
+benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ciellarc/myBLAS/build/CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ciellarc/myBLAS/build/CMakeFiles 0
-.PHONY : benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/rule
+.PHONY : benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/rule
 
 # Convenience name for target.
-bench_myBLAS_dgemm1: benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/rule
-.PHONY : bench_myBLAS_dgemm1
+bench_myBLAS_dgemm: benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/rule
+.PHONY : bench_myBLAS_dgemm
 
 # clean rule for target.
-benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/clean:
-	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/clean
-.PHONY : benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/clean
+benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/clean:
+	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/clean
+.PHONY : benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/clean
 
 #=============================================================================
 # Target rules for target benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir
@@ -198,6 +216,32 @@ bench_mklBLAS_dgemm: benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/rule
 benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/clean:
 	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/clean
 .PHONY : benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/test_myBLAS_dgemm.dir
+
+# All Build rule for target.
+tests/CMakeFiles/test_myBLAS_dgemm.dir/all: CMakeFiles/myblas.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_myBLAS_dgemm.dir/build.make tests/CMakeFiles/test_myBLAS_dgemm.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_myBLAS_dgemm.dir/build.make tests/CMakeFiles/test_myBLAS_dgemm.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=10,11 "Built target test_myBLAS_dgemm"
+.PHONY : tests/CMakeFiles/test_myBLAS_dgemm.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/test_myBLAS_dgemm.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ciellarc/myBLAS/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_myBLAS_dgemm.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ciellarc/myBLAS/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/test_myBLAS_dgemm.dir/rule
+
+# Convenience name for target.
+test_myBLAS_dgemm: tests/CMakeFiles/test_myBLAS_dgemm.dir/rule
+.PHONY : test_myBLAS_dgemm
+
+# clean rule for target.
+tests/CMakeFiles/test_myBLAS_dgemm.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_myBLAS_dgemm.dir/build.make tests/CMakeFiles/test_myBLAS_dgemm.dir/clean
+.PHONY : tests/CMakeFiles/test_myBLAS_dgemm.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

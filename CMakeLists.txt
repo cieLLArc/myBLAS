@@ -8,7 +8,6 @@ endif()
 
 set(SOURCES
     ${PROJECT_SOURCE_DIR}/src/level3/sgemm.cpp
-
     ${PROJECT_SOURCE_DIR}/src/utils/utils.cpp
 )
 
@@ -71,6 +70,14 @@ if(BUILD_BENCHMARKS)
     add_subdirectory(benchmark)
 endif()
 
+option(BUILD_TESTS "Build tests" ON)
+
+if(BUILD_TESTS)
+    add_subdirectory(tests)
+endif()
+
+
+
 # ========================
 # Project Info
 # ========================
@@ -86,9 +93,17 @@ message(STATUS "C++ Standard    : cxx_std_${CMAKE_CXX_STANDARD}")
 # Build Targets
 # ========================
 message(STATUS "Built targets")
-foreach(TARGET myBLASmain bench_sgemm)
-    message(STATUS "  • ${TARGET}")
-endforeach()
+message(STATUS "  • myBLASmain")
+if(BUILD_BENCHMARKS)
+    message(STATUS "  • bench_myBLAS_dgemm")
+    message(STATUS "  • bench_mklBLAS_dgemm")
+endif()
+
+if(BUILD_TESTS)
+    message(STATUS "  • test_myBLAS_dgemm")
+endif()
+    
+
 
 # ========================
 # Warnings & Notices

@@ -1,0 +1,1 @@
+/usr/bin/g++ -O3 -DNDEBUG CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.o -o test_myBLAS_dgemm  ../libmyblas.a /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a 

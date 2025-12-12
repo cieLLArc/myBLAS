@@ -1,42 +1,42 @@
 #include "utils.h"
 
-double g_tsc_freq = 0.0;
+double tsc_freq = 0.0;
 
 void calibrate_tsc()
 {
-    if (g_tsc_freq != 0.0)
-        return;
+    uint32_t eax, ebx, ecx, edx;
+    uint64_t crystal_hz, tsc_freq_hz;
 
-    const int iterations = 5;
-    double frequencies[iterations];
+    // 使用CPUID指令，叶功能0x15（时间戳计数器与核心晶体时钟信息）
+    // 输入：EAX = 0x15
+    // 输出：EAX = TSC/“核心晶体时钟”分频比 (分母)
+    //       EBX = TSC/“核心晶体时钟”倍频比 (分子)
+    //       ECX = “核心晶体时钟”频率 (Hz)。对某些平台可能为0。
+    asm volatile("cpuid"
+                 : "=a"(eax), "=b"(ebx), "=c"(ecx), "=d"(edx)
+                 : "a"(0x15), "c"(0));
 
-    for (int i = 0; i < iterations; ++i)
+    // 检查返回的分母(EAX)和分子(EBX)是否有效
+    if (eax == 0 || ebx == 0)
     {
-        struct timespec start, end;
-        uint64_t tsc_start, tsc_end;
-
-        clock_gettime(CLOCK_MONOTONIC_RAW, &start);
-        tsc_start = get_cycles();
-
-        struct timespec sleep_time = {1, 0};
-        nanosleep(&sleep_time, NULL);
-
-        tsc_end = get_cycles();
-        clock_gettime(CLOCK_MONOTONIC_RAW, &end);
-
-        double wall_time = (end.tv_sec - start.tv_sec) +
-                           (end.tv_nsec - start.tv_nsec) / 1e9;
-
-        frequencies[i] = (tsc_end - tsc_start) / wall_time;
+        std::cerr << "[WARNING] CPUID.15H not supported. Falling back to calibration.\n";
     }
 
-    // 排序取中位数
-    for (int i = 0; i < iterations - 1; ++i)
-        for (int j = i + 1; j < iterations; ++j)
-            if (frequencies[i] > frequencies[j])
-                std::swap(frequencies[i], frequencies[j]);
+    // 计算TSC频率：TSC (Hz) = (晶体频率 * EBX) / EAX
+    if (ecx != 0)
+    {
+        // 情况1：ECX寄存器直接提供了晶体频率（Hz）
+        crystal_hz = (uint64_t)ecx;
+    }
+    else
+    {
+        // 情况2：ECX为0，需要使用已知的默认值。
+        // 对于包括i7-14650HX在内的大多数现代Intel客户端平台，该值为24 MHz。
+        // 注：某些服务器平台可能使用25 MHz。
+        crystal_hz = 24000000; // 24,000,000 Hz
+    }
 
-    g_tsc_freq = frequencies[iterations / 2];
+    tsc_freq = (crystal_hz * ebx) / eax;
 }
 
 void generate_random_matrix(double *mat, int size)

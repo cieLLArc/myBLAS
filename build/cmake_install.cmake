@@ -45,6 +45,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/ciellarc/myBLAS/build/benchmark/cmake_install.cmake")
+  include("/home/ciellarc/myBLAS/build/tests/cmake_install.cmake")
 
 endif()
 

@@ -73,29 +73,29 @@ CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o: CMakeFiles/myblas.dir/flags.make
 CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o: /home/ciellarc/myBLAS/src/level3/sgemm.cpp
 CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o: CMakeFiles/myblas.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o -MF CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o.d -o CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o -c /home/ciellarc/myBLAS/src/level3/sgemm.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o -MF CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o.d -o CMakeFiles/myblas.dir/src/level3/sgemm.cpp.o -c /home/ciellarc/myBLAS/src/level3/sgemm.cpp
 
 CMakeFiles/myblas.dir/src/level3/sgemm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/myblas.dir/src/level3/sgemm.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ciellarc/myBLAS/src/level3/sgemm.cpp > CMakeFiles/myblas.dir/src/level3/sgemm.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ciellarc/myBLAS/src/level3/sgemm.cpp > CMakeFiles/myblas.dir/src/level3/sgemm.cpp.i
 
 CMakeFiles/myblas.dir/src/level3/sgemm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/myblas.dir/src/level3/sgemm.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ciellarc/myBLAS/src/level3/sgemm.cpp -o CMakeFiles/myblas.dir/src/level3/sgemm.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ciellarc/myBLAS/src/level3/sgemm.cpp -o CMakeFiles/myblas.dir/src/level3/sgemm.cpp.s
 
 CMakeFiles/myblas.dir/src/utils/utils.cpp.o: CMakeFiles/myblas.dir/flags.make
 CMakeFiles/myblas.dir/src/utils/utils.cpp.o: /home/ciellarc/myBLAS/src/utils/utils.cpp
 CMakeFiles/myblas.dir/src/utils/utils.cpp.o: CMakeFiles/myblas.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/myblas.dir/src/utils/utils.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myblas.dir/src/utils/utils.cpp.o -MF CMakeFiles/myblas.dir/src/utils/utils.cpp.o.d -o CMakeFiles/myblas.dir/src/utils/utils.cpp.o -c /home/ciellarc/myBLAS/src/utils/utils.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myblas.dir/src/utils/utils.cpp.o -MF CMakeFiles/myblas.dir/src/utils/utils.cpp.o.d -o CMakeFiles/myblas.dir/src/utils/utils.cpp.o -c /home/ciellarc/myBLAS/src/utils/utils.cpp
 
 CMakeFiles/myblas.dir/src/utils/utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/myblas.dir/src/utils/utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ciellarc/myBLAS/src/utils/utils.cpp > CMakeFiles/myblas.dir/src/utils/utils.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ciellarc/myBLAS/src/utils/utils.cpp > CMakeFiles/myblas.dir/src/utils/utils.cpp.i
 
 CMakeFiles/myblas.dir/src/utils/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/myblas.dir/src/utils/utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ciellarc/myBLAS/src/utils/utils.cpp -o CMakeFiles/myblas.dir/src/utils/utils.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ciellarc/myBLAS/src/utils/utils.cpp -o CMakeFiles/myblas.dir/src/utils/utils.cpp.s
 
 # Object files for target myblas
 myblas_OBJECTS = \
