@@ -16,7 +16,7 @@
 
 void warmup_run(double *A, double *B, double *C, int N)
 {
-    for (int i = 0; i < 3; ++i)
+    for (int i = 0; i < 10; ++i)
     {
         cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
                     N, N, N,
@@ -25,7 +25,7 @@ void warmup_run(double *A, double *B, double *C, int N)
     }
 }
 
-std::vector<uint64_t> benchmark_run(double *A, double *B, double *C, int N, int trials = 10)
+std::vector<uint64_t> benchmark_run(double *A, double *B, double *C, int N, int trials = 1000)
 {
     std::vector<uint64_t> times_ns;
     times_ns.reserve(trials);

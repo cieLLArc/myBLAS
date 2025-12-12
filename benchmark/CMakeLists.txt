@@ -5,7 +5,7 @@ set(MKL_DIR ${MKL_ROOT}/lib/cmake/mkl)
 find_package(MKL CONFIG REQUIRED)
 
 # 通用配置
-set(BENCH_TARGETS bench_myBLAS_dgemm bench_myBLAS_dgemm1 bench_mklBLAS_dgemm)
+set(BENCH_TARGETS bench_myBLAS_dgemm1 bench_mklBLAS_dgemm)
 set(COMPILE_OPTS -O3 -Wall -Wextra)
 
 foreach(target ${BENCH_TARGETS})

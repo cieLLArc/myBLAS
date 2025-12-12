@@ -143,19 +143,6 @@ myBLASmain/fast:
 .PHONY : myBLASmain/fast
 
 #=============================================================================
-# Target rules for targets named bench_myBLAS_dgemm
-
-# Build rule for target.
-bench_myBLAS_dgemm: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_myBLAS_dgemm
-.PHONY : bench_myBLAS_dgemm
-
-# fast build rule for target.
-bench_myBLAS_dgemm/fast:
-	$(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build
-.PHONY : bench_myBLAS_dgemm/fast
-
-#=============================================================================
 # Target rules for targets named bench_myBLAS_dgemm1
 
 # Build rule for target.
@@ -262,7 +249,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bench_mklBLAS_dgemm"
-	@echo "... bench_myBLAS_dgemm"
 	@echo "... bench_myBLAS_dgemm1"
 	@echo "... myBLASmain"
 	@echo "... myblas"

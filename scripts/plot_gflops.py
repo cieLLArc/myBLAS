@@ -40,7 +40,7 @@ for label in labels:
 # 设置坐标轴
 ax.set_xlabel('Matrix Size (N)', fontsize=12, fontweight='bold')
 ax.set_ylabel('GFLOPS', fontsize=12, fontweight='bold')
-ax.set_title('Performance Comparison: Custom Kernel vs MKL\n(OpenMP, AVX2/YMM, TSC-timed)', fontsize=14, fontweight='bold')
+ax.set_title('Performance Comparison', fontsize=14, fontweight='bold')
 
 # 设置刻度和网格
 ax.set_xticks(sorted(df['N'].unique()))  # 确保 X 轴刻度是实际测试尺寸
@@ -60,14 +60,12 @@ os.makedirs(save_dir, exist_ok=True)
 timestamp = datetime.now().strftime('%Y%m%d_%H%M')
 base_name = f"matrix_comp_gflops_{timestamp}"
 
-pdf_path = os.path.join(save_dir, f"{base_name}.pdf")
 png_path = os.path.join(save_dir, f"{base_name}.png")
 
 # 保存图表
-plt.savefig(pdf_path, dpi=300, bbox_inches='tight')
 plt.savefig(png_path, dpi=300, bbox_inches='tight')
 
-print(f"图表已保存至:\n   {pdf_path}\n   {png_path}")
+print(f"Files save to:\n   {png_path}\n")
 
 # 显示图表（可选）
 plt.show()

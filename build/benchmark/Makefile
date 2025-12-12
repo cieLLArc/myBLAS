@@ -117,20 +117,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/rule:
-	cd /home/ciellarc/myBLAS/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/rule
-.PHONY : benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/rule
-
-# Convenience name for target.
-bench_myBLAS_dgemm: benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/rule
-.PHONY : bench_myBLAS_dgemm
-
-# fast build rule for target.
-bench_myBLAS_dgemm/fast:
-	cd /home/ciellarc/myBLAS/build && $(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build
-.PHONY : bench_myBLAS_dgemm/fast
-
-# Convenience name for target.
 benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/rule:
 	cd /home/ciellarc/myBLAS/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/rule
 .PHONY : benchmark/CMakeFiles/bench_myBLAS_dgemm1.dir/rule
@@ -182,30 +168,6 @@ bench_mklBLAS_dgemm.cpp.s:
 	cd /home/ciellarc/myBLAS/build && $(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_mklBLAS_dgemm.dir/bench_mklBLAS_dgemm.cpp.s
 .PHONY : bench_mklBLAS_dgemm.cpp.s
 
-bench_myBLAS_dgemm.o: bench_myBLAS_dgemm.cpp.o
-.PHONY : bench_myBLAS_dgemm.o
-
-# target to build an object file
-bench_myBLAS_dgemm.cpp.o:
-	cd /home/ciellarc/myBLAS/build && $(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.o
-.PHONY : bench_myBLAS_dgemm.cpp.o
-
-bench_myBLAS_dgemm.i: bench_myBLAS_dgemm.cpp.i
-.PHONY : bench_myBLAS_dgemm.i
-
-# target to preprocess a source file
-bench_myBLAS_dgemm.cpp.i:
-	cd /home/ciellarc/myBLAS/build && $(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.i
-.PHONY : bench_myBLAS_dgemm.cpp.i
-
-bench_myBLAS_dgemm.s: bench_myBLAS_dgemm.cpp.s
-.PHONY : bench_myBLAS_dgemm.s
-
-# target to generate assembly for a file
-bench_myBLAS_dgemm.cpp.s:
-	cd /home/ciellarc/myBLAS/build && $(MAKE) $(MAKESILENT) -f benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build.make benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.s
-.PHONY : bench_myBLAS_dgemm.cpp.s
-
 bench_myBLAS_dgemm1.o: bench_myBLAS_dgemm1.cpp.o
 .PHONY : bench_myBLAS_dgemm1.o
 
@@ -239,14 +201,10 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bench_mklBLAS_dgemm"
-	@echo "... bench_myBLAS_dgemm"
 	@echo "... bench_myBLAS_dgemm1"
 	@echo "... bench_mklBLAS_dgemm.o"
 	@echo "... bench_mklBLAS_dgemm.i"
 	@echo "... bench_mklBLAS_dgemm.s"
-	@echo "... bench_myBLAS_dgemm.o"
-	@echo "... bench_myBLAS_dgemm.i"
-	@echo "... bench_myBLAS_dgemm.s"
 	@echo "... bench_myBLAS_dgemm1.o"
 	@echo "... bench_myBLAS_dgemm1.i"
 	@echo "... bench_myBLAS_dgemm1.s"
