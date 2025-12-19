@@ -73,15 +73,15 @@ benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.o: benchmark/
 benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.o: /home/ciellarc/myBLAS/benchmark/bench_myBLAS_dgemm.cpp
 benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.o: benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.o"
-	cd /home/ciellarc/myBLAS/build/benchmark && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.o -MF CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.o.d -o CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.o -c /home/ciellarc/myBLAS/benchmark/bench_myBLAS_dgemm.cpp
+	cd /home/ciellarc/myBLAS/build/benchmark && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.o -MF CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.o.d -o CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.o -c /home/ciellarc/myBLAS/benchmark/bench_myBLAS_dgemm.cpp
 
 benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.i"
-	cd /home/ciellarc/myBLAS/build/benchmark && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ciellarc/myBLAS/benchmark/bench_myBLAS_dgemm.cpp > CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.i
+	cd /home/ciellarc/myBLAS/build/benchmark && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ciellarc/myBLAS/benchmark/bench_myBLAS_dgemm.cpp > CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.i
 
 benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.s"
-	cd /home/ciellarc/myBLAS/build/benchmark && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ciellarc/myBLAS/benchmark/bench_myBLAS_dgemm.cpp -o CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.s
+	cd /home/ciellarc/myBLAS/build/benchmark && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ciellarc/myBLAS/benchmark/bench_myBLAS_dgemm.cpp -o CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.s
 
 # Object files for target bench_myBLAS_dgemm
 bench_myBLAS_dgemm_OBJECTS = \
@@ -95,6 +95,10 @@ benchmark/bench_myBLAS_dgemm: benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/build.
 benchmark/bench_myBLAS_dgemm: libmyblas.a
 benchmark/bench_myBLAS_dgemm: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 benchmark/bench_myBLAS_dgemm: /usr/lib/x86_64-linux-gnu/libpthread.a
+benchmark/bench_myBLAS_dgemm: /opt/intel/oneapi/mkl/latest/lib/libmkl_intel_ilp64.so
+benchmark/bench_myBLAS_dgemm: /opt/intel/oneapi/mkl/latest/lib/libmkl_intel_thread.so
+benchmark/bench_myBLAS_dgemm: /opt/intel/oneapi/mkl/latest/lib/libmkl_core.so
+benchmark/bench_myBLAS_dgemm: /opt/intel/oneapi/compiler/latest/lib/libiomp5.so
 benchmark/bench_myBLAS_dgemm: benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable bench_myBLAS_dgemm"
 	cd /home/ciellarc/myBLAS/build/benchmark && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bench_myBLAS_dgemm.dir/link.txt --verbose=$(VERBOSE)

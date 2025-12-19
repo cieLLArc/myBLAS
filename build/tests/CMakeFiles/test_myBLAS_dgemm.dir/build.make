@@ -73,15 +73,15 @@ tests/CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.o: tests/CMakeFiles
 tests/CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.o: /home/ciellarc/myBLAS/tests/test_myBLAS_dgemm.cpp
 tests/CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.o: tests/CMakeFiles/test_myBLAS_dgemm.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.o"
-	cd /home/ciellarc/myBLAS/build/tests && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.o -MF CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.o.d -o CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.o -c /home/ciellarc/myBLAS/tests/test_myBLAS_dgemm.cpp
+	cd /home/ciellarc/myBLAS/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.o -MF CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.o.d -o CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.o -c /home/ciellarc/myBLAS/tests/test_myBLAS_dgemm.cpp
 
 tests/CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.i"
-	cd /home/ciellarc/myBLAS/build/tests && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ciellarc/myBLAS/tests/test_myBLAS_dgemm.cpp > CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.i
+	cd /home/ciellarc/myBLAS/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ciellarc/myBLAS/tests/test_myBLAS_dgemm.cpp > CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.i
 
 tests/CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.s"
-	cd /home/ciellarc/myBLAS/build/tests && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ciellarc/myBLAS/tests/test_myBLAS_dgemm.cpp -o CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.s
+	cd /home/ciellarc/myBLAS/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ciellarc/myBLAS/tests/test_myBLAS_dgemm.cpp -o CMakeFiles/test_myBLAS_dgemm.dir/test_myBLAS_dgemm.cpp.s
 
 # Object files for target test_myBLAS_dgemm
 test_myBLAS_dgemm_OBJECTS = \
@@ -95,6 +95,10 @@ tests/test_myBLAS_dgemm: tests/CMakeFiles/test_myBLAS_dgemm.dir/build.make
 tests/test_myBLAS_dgemm: libmyblas.a
 tests/test_myBLAS_dgemm: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 tests/test_myBLAS_dgemm: /usr/lib/x86_64-linux-gnu/libpthread.a
+tests/test_myBLAS_dgemm: /opt/intel/oneapi/mkl/latest/lib/libmkl_intel_ilp64.so
+tests/test_myBLAS_dgemm: /opt/intel/oneapi/mkl/latest/lib/libmkl_intel_thread.so
+tests/test_myBLAS_dgemm: /opt/intel/oneapi/mkl/latest/lib/libmkl_core.so
+tests/test_myBLAS_dgemm: /opt/intel/oneapi/compiler/latest/lib/libiomp5.so
 tests/test_myBLAS_dgemm: tests/CMakeFiles/test_myBLAS_dgemm.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ciellarc/myBLAS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_myBLAS_dgemm"
 	cd /home/ciellarc/myBLAS/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_myBLAS_dgemm.dir/link.txt --verbose=$(VERBOSE)

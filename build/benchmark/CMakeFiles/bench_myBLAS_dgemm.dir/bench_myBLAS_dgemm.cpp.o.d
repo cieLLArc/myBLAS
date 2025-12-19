@@ -221,6 +221,13 @@ benchmark/CMakeFiles/bench_myBLAS_dgemm.dir/bench_myBLAS_dgemm.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/unistd.h \
  /usr/include/x86_64-linux-gnu/bits/unistd-decl.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /usr/include/linux/close_range.h /usr/include/c++/13/iostream \
+ /usr/include/linux/close_range.h /usr/include/c++/13/cstring \
+ /usr/include/string.h /usr/include/strings.h \
+ /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+ /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
+ /usr/include/c++/13/iostream \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/cpuid.h \
+ /opt/intel/oneapi/mkl/latest/include/mkl_cblas.h \
+ /opt/intel/oneapi/mkl/latest/include/mkl_types.h \
+ /opt/intel/oneapi/mkl/latest/include/mkl_cblas_64.h \
  /home/ciellarc/myBLAS/include/myBLAS_level3.h
